@@ -1,9 +1,18 @@
-<h1>Task List</h1>
+<form method="GET" action="{% url 'task_list' %}">
+    {{ filter_form.as_p }}  <!-- Відображення форми фільтрації -->
+    <button type="submit" class="btn btn-primary">Фільтрувати</button>
+</form>
+
 <ul>
     {% for task in tasks %}
         <li>
-            <a href="{% url 'task_detail' task.id %}">{{ task.title }}</a> - {{ task.status }}
+            <a href="{% url 'task_detail' task.pk %}">{{ task.title }}</a>
+            <a href="{% url 'task_update' task.pk %}">Редагувати</a>
+            <a href="{% url 'task_delete' task.pk %}">Видалити</a>
         </li>
     {% endfor %}
 </ul>
-<a href="{% url 'task_create' %}">Create New Task</a>
+<form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>

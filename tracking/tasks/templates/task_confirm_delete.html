@@ -1,0 +1,7 @@
+<h2>Ви впевнені, що хочете видалити цю задачу?</h2>
+<p>{{ task.title }}</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Видалити</button>
+    <a href="{% url 'task_list' %}" class="btn btn-secondary">Скасувати</a>
+</form>
