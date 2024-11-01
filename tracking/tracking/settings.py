@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'tasks',
 ]
 
+LOGIN_REDIRECT_URL = 'task_list'  # URL, на который пользователь будет перенаправлен после входа
+LOGOUT_REDIRECT_URL = 'login'  # URL, на который пользователь будет перенаправлен после выхода
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
